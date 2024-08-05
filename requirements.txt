@@ -1,0 +1,10 @@
+torch
+torchvision
+torchaudio
+gym
+numpy
+matplotlib
+pandas
+scipy
+stable-baselines3
+tensorboard
