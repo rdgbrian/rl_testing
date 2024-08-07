@@ -147,8 +147,7 @@ class QLearning:
             #next_state_values[non_final_mask] = self.target_net(non_final_next_states).max(1).values
             argmax_a_train = self.policy_net(non_final_next_states).max(1).indices
             argmax_a_train = argmax_a_train.view(-1, 1)
-            values = self.target_net(non_final_next_states)
-            next_state_values[non_final_mask] = self.target_net(non_final_next_states).gather(1, argmax_a_train)
+            next_state_values[non_final_mask] = self.target_net(non_final_next_states).gather(1, argmax_a_train).squeeze(1)
 
         # Compute the expected Q values
         expected_state_action_values = (next_state_values * self.GAMMA) + reward_batch
