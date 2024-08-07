@@ -1,0 +1,12 @@
+__pycache__/
+
+temp*.py
+ddp_commands.txt
+useful_commands.txt
+
+
+*.pth
+*.pt
+*.bin
+*.zip
+*.csv
