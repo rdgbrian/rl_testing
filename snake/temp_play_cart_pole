@@ -1,0 +1,32 @@
+import gymnasium as gym
+import keyboard
+import time
+
+def get_action():
+    """
+    Get user input for the action.
+    """
+    action = None
+    if keyboard.is_pressed('left'):
+        action = 0  # Example action for left key
+    elif keyboard.is_pressed('right'):
+        action = 1  # Example action for right key
+    return action
+
+def main():
+    env = gym.make('CartPole-v1', render_mode="human")
+    observation, info = env.reset()
+    
+    done = False
+    while not done:
+        action = None
+        while action is None:
+            action = get_action()
+
+        observation, reward, done, truncated, info = env.step(action)
+        time.sleep(0.1)  # To slow down the loop for better control
+
+    env.close()
+
+if __name__ == "__main__":
+    main()

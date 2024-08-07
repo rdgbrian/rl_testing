@@ -198,5 +198,7 @@ class QLearning:
                 self.target_net.load_state_dict(target_net_state_dict)
                 if done:
                     self.episode_durations.append(t + 1)
-                    self.plot_durations()
+                    show_result = i_episode == num_episodes -1
+                    is_ipython = not show_result
+                    self.plot_durations(show_result=show_result,is_ipython=is_ipython)
                     break
